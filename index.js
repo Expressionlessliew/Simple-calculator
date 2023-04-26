@@ -1,6 +1,8 @@
 const check = document.getElementById("check");
+const check2 = document.getElementById("check2");
 const nombor = /^\d+$/;
 let isans;
+let isans2;
 
 //number
 const number1 = document.getElementById("number1");
@@ -16,15 +18,21 @@ let ans;
 number1.addEventListener("input", onChange);
 number1.addEventListener("input", onCheck);
 number2.addEventListener("input", onChange2);
+number2.addEventListener("input", onCheck2);
 button.addEventListener("click", Calculate);
 DELETE.addEventListener("click", clear);
 
 function clear() {
-  number1.innerHTML = "";
-  result.innerHTML = "";
-  
-  number2.innerHTML = "";
-  check.innerHTML = "";
+  number1.value = "";
+  number1.placeholder="input your first number";
+
+  result.innerHTML = " ";
+  check2.innerHTML = " ";
+
+  number2.value = "";
+  number2.placeholder="input your number";
+
+  check.innerHTML = " ";
 }
 
 function onChange(event) {
@@ -39,9 +47,20 @@ function onCheck() {
   isans = input;
   if (isans != null) {
     if (nombor.test(isans)) {
-      check.innerhtml = "Valid number";
+    
     } else {
       check.innerHTML = "invalid number";
+    }
+  }
+}
+
+function onCheck2() {
+  isans2 = input2;
+  if (isans2 != null) {
+    if (nombor.test(isans2)) {
+      
+    } else {
+      check2.innerHTML = "Invalid number";
     }
   }
 }
